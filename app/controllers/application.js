@@ -21,7 +21,8 @@ default Ember.ObjectController.extend({
     activated: false,
     id: 1,
     currentid: 1,
-    conversations: null,
+    unread:0,
+    messages:[],
     unseen_matches: [],
     actions: {
         activate: function() {

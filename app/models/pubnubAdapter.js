@@ -16,6 +16,17 @@ default Ember.Object.extend({
         pubnub.subscribe({
             channel: id,    
             message: function(m) {
+                var messages=controller.get('messages');
+                messages.push(m);
+
+                var count = controller.get('unread');
+                count+=1;
+
+                controller.set('unread',count)
+                controller.set('messages',messages)
+                controller.propertyDidChange('messages');
+
+                /*
                 if (m.match){
                     pubnub.subscribe({channel:m.id,
                     message: function(m){
@@ -36,7 +47,8 @@ default Ember.Object.extend({
                 unread.push(m);
                 controller.set('unseen_matches', unread);
                 controller.propertyDidChange('unseen_matches');
-                }                
+
+                } */               
             },
 
         });
