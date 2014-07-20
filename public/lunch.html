@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['Taqueria Mar & Tierra', 37.4875796, -122.2139516, 4],
+      ['Saporito Pasta Co', 37.4897082, -122.218009, 5],
+      ['La Viga Restaurant', 37.4872565, -122.2183631, 3],
+      ['Hometown Noodle Restaurant', 37.4786564, -122.2032331, 2],
+      ['Lee\'s Deli', 37.4800867, -122.1884702, 1]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(37.4875796, -122.2139516),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+	var locationNumber = Math.floor(Math.random() * locations.length);
+    //for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[locationNumber][1], locations[locationNumber][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    //}
+  </script>
+</body>
+</html>
