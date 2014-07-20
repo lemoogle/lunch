@@ -1,0 +1,50 @@
+<style>
+.title {
+	/*height: 100px;*/
+	text-align:center;
+}
+</style>
+<div class="title">
+<span style="font-size:250%">
+<h2>Lunch at Lee's Deli</h2>
+</br>
+</span>
+Harvey Chan</br>
+<img src="http://gravatar.com/avatar/ed2c2656deb6aed822e212268a08f894.png?s=75px"></br>
+.NET Developer</br>
+
+</div>
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+       ['Lee\'s Deli', 37.4800867, -122.1884702, 1]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(37.4875796, -122.2139516),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+	var locationNumber = 0;
+    //for (i = 0; i < locations.length; i++) {  
+      
+	//function addmarker(){
+	marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[locationNumber][1], locations[locationNumber][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, locationNumber) {
+        return function() {
+          infowindow.setContent(locations[locationNumber][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, locationNumber));
+//	}
+    //}
+  </script>
