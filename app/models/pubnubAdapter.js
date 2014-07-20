@@ -16,14 +16,15 @@ default Ember.Object.extend({
         pubnub.subscribe({
             channel: id,    
             message: function(m) {
+                alert('hi')
                 var messages=controller.get('messages');
                 messages.push(m);
 
                 var count = controller.get('unread');
                 count+=1;
 
-                controller.set('unread',count)
-                controller.set('messages',messages)
+                controller.set('unread',count);
+                controller.set('messages',messages);
                 controller.propertyDidChange('messages');
 
                 /*

@@ -4,16 +4,11 @@
 
       <div class="iconbar iconbar-horizontal">
             <ul>
-              <li><a class="fui-gear"></a></li>
-              <li><a href="#fakelink" class="fui-user">
-                <span class="iconbar-unread">{{unseen_matches.length}}</span>
-
-              </a></li>
-              <li style="float:right">
-                <a href="#fakelink" class="fui-mail">
-                  <span class="iconbar-unread">{{unread_messages.length}}</span>
-                </a>
+              <li>{{#link-to 'messages' classNames="fui-user" }}
+                <span class="iconbar-unread">{{unread}}</span>
+                {{/link-to}}
               </li>
+
             </ul>
        </div>
 </div>
