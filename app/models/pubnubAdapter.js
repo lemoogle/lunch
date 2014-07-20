@@ -16,7 +16,11 @@ default Ember.Object.extend({
         pubnub.subscribe({
             channel: id,    
             message: function(m) {
-                
+                if (m.match){
+                    controller.transitionTo('lunch');
+                    return;
+                }
+              
                 var messages=controller.get('messages');
                 messages.push(m);
 
@@ -26,9 +30,6 @@ default Ember.Object.extend({
                 controller.set('unread',count);
                 controller.set('messages',messages);
                 controller.propertyDidChange('messages');
-                if (m.match){
-                    controller.transitionTo('lunch');
-                }
                 /*
                 if (m.match){
                     pubnub.subscribe({channel:m.id,
@@ -72,7 +73,6 @@ default Ember.Object.extend({
 
     },
     publish: function(id, message){
-        alert('publishing to '+id);
         this.get('pubnub').publish({
              channel : id,
              message : message

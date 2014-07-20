@@ -10,7 +10,7 @@ import Ember from "ember";
 export
 default Ember.ObjectController.extend({
     init: function() {
-        var id = 1;
+        var id = 2;
         this.set('id', id);
         this.set('curr  entid', id);
         this.set('unseen_matches', []);

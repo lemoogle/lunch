@@ -4,12 +4,12 @@
 {{#if match }}
 <div class="alert alert-info">
             <button type="button" class="close fui-cross" data-dismiss="alert"></button>
-            <h3>{{#link-to 'user' this }}{{name}}{{/link-to}} wants to have lunch with you !</h3>
+            <h3>{{id}}{{#link-to 'user' id }}{{name}}{{/link-to}} wants to have lunch with you !</h3>
             </div>
 {{else}}
 <div class="alert alert-error">
             <button type="button" class="close fui-cross" data-dismiss="alert"></button>
-            <h3>{{#link-to 'user' this }}{{name}}{{/link-to}}</h3>
+            <h3>{{id}}{{#link-to 'user' id }}{{name}}{{/link-to}}</h3>
              <p>{{text}}</p>
 
             </div>
