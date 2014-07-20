@@ -22,7 +22,7 @@ default Ember.ObjectController.extend({
                 data=JSON.parse(data);
                 if (data.matches.length>0){
                    self.get('pubnub').publish(self.get('id'),{'match':true,'text':'','name':self.get('name')});
-                  // self.transitionTo('lunch');
+                   self.transitionTo('lunch');
                 }
                 else{
                    self.get('pubnub').publish(self.get('id'),{'invite':true,'text':'','name':self.get('name')});

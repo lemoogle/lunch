@@ -19,7 +19,7 @@ default Ember.ObjectController.extend({
         //this.get('pubnub').publish(id, "yo");
     },
     activated: false,
-    id: 1,
+    id: 2,
     currentid: 1,
     unread:0,
     messages:[],
