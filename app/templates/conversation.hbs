@@ -1,0 +1,17 @@
+{{#each message in messages}}
+{{message}}
+{{/each}}
+
+
+<div class="footer">
+<div class="input-append">
+
+ <button style="float:right" class="btn btn-small" type="button"><span class="fui-mail"></span></button>
+
+ <span class="wrap">
+ {{view "messagetext" placeholder="" valueBinding="controller.text"}}
+ </span>
+
+
+            </div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lunch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/lunch.css">
+  </head>
+  <body>
+    <script>
+      window.LunchENV = {{ENV}};
+      window.EmberENV = window.LunchENV.EmberENV;
+    </script>
+    <script src="assets/jquery-1.8.3.min.js"></script>
+    <script src="assets/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="assets/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/bootstrap-select.js"></script>
+    <script src="assets/bootstrap-switch.js"></script>
+    <script src="assets/flatui-checkbox.js"></script>
+    <script src="assets/flatui-radio.js"></script>
+    <script src="assets/jquery.tagsinput.js"></script>
+    <script src="assets/jquery.placeholder.js"></script>
+ <script src=http://cdn.pubnub.com/pubnub.min.js ></script>
+
+    <script src="assets/vendor.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+
+<!-- EmberFire -->
+<script src="https://cdn.firebase.com/libs/emberfire/1.1.1/emberfire.min.js"></script>
+    <script src="assets/lunch.js"></script>
+    <script>
+      window.Lunch = require('lunch/app')['default'].create(LunchENV.APP);
+    </script>
+  </body>
+</html>

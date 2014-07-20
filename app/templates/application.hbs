@@ -1,0 +1,39 @@
+
+
+<div class="header">
+
+      <div class="iconbar iconbar-horizontal">
+            <ul>
+              <li><a class="fui-gear"></a></li>
+              <li><a href="#fakelink" class="fui-user">
+                <span class="iconbar-unread">{{unseen_matches.length}}</span>
+
+              </a></li>
+              <li style="float:right">
+                <a href="#fakelink" class="fui-mail">
+                  <span class="iconbar-unread">{{unread_messages.length}}</span>
+                </a>
+              </li>
+            </ul>
+       </div>
+</div>
+      <div class="content full" >
+
+{{outlet}}
+        </div>
+
+
+<div class="footer">
+
+{{#if controller.activated}}
+<a {{action 'activate'}} class="btn btn-huge btn-primary btn-block btn-full"><i class="fui-check-inverted"></i> deactivate</a>
+</div>
+
+{{else}}
+
+<button {{action 'activate'}} class="btn btn-huge btn-primary btn-block btn-full"><i class="fui-check-inverted"></i> activate</button>
+
+{{/if}}
+
+  </div>  
+
