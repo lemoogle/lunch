@@ -7,6 +7,24 @@
           type="text/javascript"></script>
 </head> 
 <body>
+<style>
+.title {
+	/*height: 100px;*/
+	text-align:center;
+}
+</style>
+<div class="title">
+<span style="font-size:250%">
+<button onclick="addmarker()">
+Go to lunch
+</button>
+</br>
+</span>
+Harvey Chan</br>
+<img src="http://gravatar.com/avatar/ed2c2656deb6aed822e212268a08f894.png?s=75px"></br>
+.NET Developer</br>
+
+</div>
   <div id="map" style="width: 500px; height: 400px;"></div>
 
   <script type="text/javascript">
@@ -30,17 +48,19 @@
 
 	var locationNumber = Math.floor(Math.random() * locations.length);
     //for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
+      
+	function addmarker(){
+	marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[locationNumber][1], locations[locationNumber][2]),
         map: map
       });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(marker, 'click', (function(marker, locationNumber) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          infowindow.setContent(locations[locationNumber][0]);
           infowindow.open(map, marker);
         }
-      })(marker, i));
+      })(marker, locationNumber));
+	}
     //}
   </script>
 </body>
